@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'; // Ao invés de usar um tag <a>, o Link evita recarregar todos os recursos da página a cada vez
 
 import logoImg from '../../assets/images/logo.svg';
 import landingImg from '../../assets/images/landing.svg';
@@ -20,16 +21,16 @@ function Landing() {
         <img src={landingImg} alt='Plataforma de estudos' className='hero-image' />
       
         <div className='buttons-container'>
-          <a href='' className='study'>
+          <Link to='/study' className='study'>
             <img src={studyIcon} alt='Estudar' />
             Etudar
-          </a>
+          </Link>
 
 
-          <a href='' className='give-classes'>
+          <Link to='/give-classes' className='give-classes'>
             <img src={giveClassesIcon} alt='Dar aula' />
             Dar aulas
-          </a>
+          </Link>
         </div>
 
         <span className='total-connections'>

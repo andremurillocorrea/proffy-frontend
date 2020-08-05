@@ -45,6 +45,7 @@ input,
 button,
 textarea {
   font: 500 1.6rem Poppins; /* 160% do valor padrão da fonte - muito usado para facilitar responsividade do app */
+  color: var(--color-text-base);
 }
 
 .container {
