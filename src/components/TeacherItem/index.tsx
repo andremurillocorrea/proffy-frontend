@@ -2,34 +2,52 @@ import React from 'react';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
+import api from '../../services/api';
+
 import './styles.css';
 
-function TeacherItem() {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('/connections', {
+      user_id: teacher.id,
+    });
+  }
+
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://avatars3.githubusercontent.com/u/27099418?s=460&u=9e9d60aaaa0442fe7490f625c9dbbe97ed1d3480&v=4" alt="André Corrêa" />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>André Corrêa</strong>
-          <span>Estatística</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta em usar as melhores práticas de modelagem e Data Science para decisões de negócio.
-        <br/><br/>
-        Responsável por modelos de clusterização de base de cliente, segmentação de perfis, predição de churn, forecast de série temporal, análise de sobrevivência, entre outros.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 80,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a target="_blank" onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp}`}>
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
 
     </article>
