@@ -1,6 +1,6 @@
 ## Description
 
-Proffy study platform is Rocketseat's project for the Next Level Week (NLW) program. 
+Proffy study platform is Rocketseat's project for the Next Level Week (NLW) program, created using ReactJS framework.
 
 In this web interface, teachers can create classes just by describing a little bit of themselves, defining class price and available schedule.
 
